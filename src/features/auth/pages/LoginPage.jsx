@@ -4,7 +4,7 @@ import LoginForm from "../components/LoginForm";
 const LoginPage = () => {
   return (
     <main className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center md:h-screen px-6 py-8 lg:py-0 mx-auto">
+      <div className="flex flex-col items-center justify-center min-h-screen px-6 py-8 mx-auto">
         <h1 className="font-semibold text-2xl text-center text-black dark:text-white mb-6">
           Invoice App
         </h1>

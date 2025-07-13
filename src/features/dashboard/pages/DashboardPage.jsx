@@ -2,6 +2,7 @@ import DashboardLayout from "../components/DashboardLayout";
 import Container from "@/components/Container";
 import Header from "@/components/Header";
 import ModuleListSection from "../components/ModuleListSection";
+import React from "react";
 
 const DashboardPage = () => {
   return (

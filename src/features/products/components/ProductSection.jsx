@@ -8,9 +8,10 @@ import Link from 'next/link';
 import { HiPlus } from 'react-icons/hi2';
 import { LuSearch, LuX } from 'react-icons/lu';
 import Pagination from '@/components/Pagination';
+import Sortable from '@/components/Sortable';
 
 const ProductSection = () => {
-  const { data, isLoading, error, searchRef, handleSearchInput, searchParams, handleClearSearch, handlePaginate, handleLimit } = useProduct();
+  const { data, isLoading, error, searchRef, handleSearchInput, searchParams, handleClearSearch, handlePaginate, handleLimit, handleSort } = useProduct();
   return (
     <div>
       <div className="flex justify-between mb-3">
@@ -48,24 +49,20 @@ const ProductSection = () => {
           <thead className="text-xs text-stone-700 uppercase bg-gray-100 dark:bg-gray-600 dark:text-stone-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                {/* <Sortable handleSort={handleSort} sort_by={`id`}> */}
+                <Sortable handleSort={handleSort} sort_by={`id`}>
                   #
-                {/* </Sortable> */}
+                </Sortable>
               </th>
               <th scope="col" className="px-6 py-3">
-                {/* <Sortable handleSort={handleSort} sort_by={`product_name`}> */}
+                <Sortable handleSort={handleSort} sort_by={`product_name`}>
                   Product name
-                {/* </Sortable> */}
+                </Sortable>
               </th>
 
               <th scope="col" className="px-6 py-3 text-end">
-                {/* <Sortable
-                  handleSort={handleSort}
-                  sort_by={`price`}
-                  align={"right"}
-                > */}
+                <Sortable handleSort={handleSort} sort_by={`price`} align={"right"} >
                   Price
-                {/* </Sortable> */}
+                </Sortable>
               </th>
               <th scope="col" className="px-6 py-3 text-center">
                 Created At

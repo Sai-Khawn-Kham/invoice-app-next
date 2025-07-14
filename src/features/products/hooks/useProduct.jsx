@@ -53,6 +53,14 @@ const useProduct = () => {
     updateUrlParams(newParams);
   };
 
+  const handleSort = (sortData) => {
+    const newParams = {
+      ...convertSearchPramsToObject(searchParams),
+      ...sortData,
+    };
+    updateUrlParams(newParams);
+  }
+
   return {
     data,
     isLoading,
@@ -62,7 +70,8 @@ const useProduct = () => {
     searchParams,
     handleClearSearch,
     handlePaginate,
-    handleLimit
+    handleLimit,
+    handleSort
   };
 };
 

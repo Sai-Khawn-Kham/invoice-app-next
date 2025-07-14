@@ -8,7 +8,7 @@ const ProductLoader = () => {
   return [...Array(Number(currentLimit))].map((_, i) => (
     <tr
       key={i}
-      className="animate-pulse odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b last:border-b-0 dark:border-gray-700"
+      className="animate-pulse odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800"
     >
       <td className="px-6 py-4">
         <div className="h-4 bg-gray-200 rounded dark:bg-gray-600 w-8"></div>

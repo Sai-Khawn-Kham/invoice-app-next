@@ -9,9 +9,9 @@ const ProductEditSection = () => {
   return (
     <div className="rounded-lg w-full md:w-1/2">
       <h1 className="font-bold text-3xl dark:text-gray-50 mb-3">
-        Create New Product
+        Edit Product
       </h1>
-      <p className="mb-10 text-stone-500">
+      <p className="mb-10 text-gray-500">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. At alias
         necessitatibus quos earum itaque.
       </p>
@@ -19,23 +19,19 @@ const ProductEditSection = () => {
         <div className="mb-5">
           <label
             htmlFor="product_name"
-            className={`block mb-2 font-medium text-sm ${
-              errors.product_name
-                ? "text-red-500"
-                : "text-gray-900 dark:text-gray-50"
-            }`}
+            className="block mb-2 font-medium text-sm dark:text-gray-50"
           >
-            New Product Name
+            Product Name
           </label>
           <input
             type="text"
             id="product_name"
             defaultValue={data?.data?.product_name}
             {...register("product_name", { required: true })}
-            className={`block w-full text-sm text-gray-900 bg-gray-50 border focus:outline-none focus:ring-1 rounded-lg p-2.5 ${
+            className={`block w-full text-sm dark:text-white bg-gray-50 dark:bg-gray-700 border rounded-lg p-2.5 focus:outline-none ${
               errors.product_name
-                ? "border-red-500 focus:ring-red-500"
-                : "border-gray-300 focus:ring-blue-500"
+                ? "border-red-500"
+                : "border-gray-300 focus:border-blue-500 dark:border-gray-600"
             }`}
             placeholder="e.g., apple"
           />
@@ -49,9 +45,7 @@ const ProductEditSection = () => {
         <div className="mb-8">
           <label
             htmlFor="price"
-            className={`block mb-2 font-medium text-sm ${
-              errors.price ? "text-red-500" : "text-gray-900 dark:text-gray-50"
-            }`}
+            className="block mb-2 font-medium text-sm dark:text-gray-50"
           >
             Product Price
           </label>
@@ -60,10 +54,10 @@ const ProductEditSection = () => {
             id="price"
             defaultValue={data?.data?.price}
             {...register("price", { required: true })}
-            className={`block w-full text-sm text-gray-900 bg-gray-50 border focus:outline-none focus:ring-1 rounded-lg p-2.5 ${
+            className={`block w-full text-sm dark:text-white bg-gray-50 dark:bg-gray-700 border rounded-lg p-2.5 focus:outline-none ${
               errors.price
-                ? "border-red-500 focus:ring-red-500"
-                : "border-gray-300 focus:ring-blue-500"
+                ? "border-red-500"
+                : "border-gray-300 focus:border-blue-500 dark:border-gray-600"
             }`}
             placeholder="e.g., 500"
           />
@@ -78,47 +72,48 @@ const ProductEditSection = () => {
           <input
             type="checkbox"
             id="all_correct"
-            className="w-4 h-4 text-blue-600 bg-gray-100 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="size-4"
             required
           />
           <label
             htmlFor="all_correct"
-            className="ml-2 text-sm font-medium text-gray-900"
+            className="font-medium text-sm dark:text-gray-50 ml-2"
           >
             Make sure all fields are correct
           </label>
         </div>
 
-        <div className="flex items-center mb-4">
+        <div className="mb-4">
           <input
             type="checkbox"
             id="back_to_product_list"
             {...register("back_to_product_list")}
-            className="w-4 h-4 text-blue-600 bg-gray-100 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="size-4"
           />
           <label
             htmlFor="back_to_product_list"
-            className="ml-2 text-sm font-medium text-gray-900"
+            className="font-medium text-sm dark:text-gray-50 ml-2"
           >
             Back to Product List after saving
           </label>
         </div>
 
-        <Link
-          href="/dashboard/products"
-          className="py-2.5 px-5 mr-2 mb-2 font-medium text-sm text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:z-10 focus:ring-3 focus:ring-blue-300"
-        >
-          Cancel
-        </Link>
-
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 font-medium text-sm text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5 focus:outline-none focus:ring-3 focus:ring-blue-300 disabled:pointer-events-none disabled:opacity-80"
-        >
-          <span>Save Product</span>
-          {isSubmitting && <SpinnerBtn />}
-        </button>
+        <div>
+          <Link
+            href="/dashboard/products"
+            className="font-medium text-sm bg-white hover:bg-gray-200 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-500 py-2.5 px-5 mr-2 mb-2"
+          >
+            Cancel
+          </Link>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 font-medium text-sm text-white bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-800 px-5 py-2.5 disabled:pointer-events-none disabled:opacity-80"
+          >
+            <span>Save Product</span>
+            {isSubmitting && <SpinnerBtn />}
+          </button>
+        </div>
       </form>
     </div>
   )

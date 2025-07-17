@@ -1,5 +1,4 @@
 "use client";
-
 import { fetchProduct, productApiUrl, updateProduct } from "@/services/product";
 import { useParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -9,13 +8,7 @@ import useSWR from "swr";
 const useProductEdit = () => {
   const { id } = useParams();
   const router = useRouter();
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting, errors },
-    reset,
-  } = useForm();
-
+  const { register, handleSubmit, formState: { isSubmitting, errors }, reset } = useForm();
   const { data, isLoading, error } = useSWR(`${productApiUrl}/${id}`, fetchProduct);
 
   const handleProductEdit = async (formData) => {

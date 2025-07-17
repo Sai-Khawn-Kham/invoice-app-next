@@ -22,10 +22,10 @@ const Sortable = ({ children, handleSort, sort_by, align }) => {
       }`}
     >
       <span className="flex flex-col">
-        <button className=" hover:bg-stone-300" onClick={handleSortAsc}>
+        <button className=" hover:bg-gray-300 dark:text-gray-50 dark:hover:bg-gray-700" onClick={handleSortAsc}>
           <LuChevronUp />
         </button>
-        <button className=" hover:bg-stone-300" onClick={handleSortDesc}>
+        <button className=" hover:bg-gray-300 dark:text-gray-50 dark:hover:bg-gray-700" onClick={handleSortDesc}>
           <LuChevronDown />
         </button>
       </span>

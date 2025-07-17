@@ -9,9 +9,7 @@ import { useSearchParams } from "next/navigation";
 import SpinnerBtn from "@/components/SpinnerBtn";
 import ShowDateTime from "@/components/ShowDateTime";
 
-const ProductRow = ({
-  product: { id, product_name, price, created_at, updated_at },
-}) => {
+const ProductRow = ({ product: { id, product_name, price, created_at, updated_at }}) => {
   const [isDeleting, setIsDeleting] = React.useState(false);
   const searchParams = useSearchParams();
   const key = searchParams.toString()
@@ -37,15 +35,16 @@ const ProductRow = ({
   };
 
   return (
-    <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 ">
-      <td className="px-6 py-4">{id}</td>
-      <th
-        scope="row"
-        className="px-6 py-4 font-medium text-stone-900 whitespace-nowrap dark:text-white"
-      >
+    <tr className="odd:bg-gray-50 odd:dark:bg-gray-900 even:bg-gray-100 even:dark:bg-gray-800">
+      <td className="px-6 py-4">
+        {id}
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap">
         {product_name}
-      </th>
-      <td className="px-6 py-4 text-end">{price}</td>
+      </td>
+      <td className="px-6 py-4 text-end">
+        {price}
+      </td>
       <td className="px-6 py-4 text-center">
         <ShowDateTime timestamp={created_at} />
       </td>
@@ -56,7 +55,7 @@ const ProductRow = ({
         <div className="inline-flex rounded-md shadow-sm" role="group">
           <Link
             href={`/dashboard/products/${id}`}
-            className="size-10 flex justify-center items-center text-sm font-medium text-stone-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white"
+            className="size-10 flex justify-center items-center font-medium text-sm hover:text-blue-500 focus:text-blue-500 bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-s-lg focus:z-10"
           >
             <HiOutlinePencil />
           </Link>
@@ -64,7 +63,7 @@ const ProductRow = ({
           <button
             type="button"
             onClick={handleDelete}
-            className="size-10 flex justify-center items-center text-sm font-medium text-red-600 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white"
+            className="size-10 flex justify-center items-center font-medium text-sm hover:text-red-500 focus:text-red-500 bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-e-lg focus:z-10 cursor-pointer"
           >
             {isDeleting ? <SpinnerBtn /> : <HiOutlineTrash />}
           </button>

@@ -15,7 +15,7 @@ const ProductLoader = () => {
       </td>
       <th
         scope="row"
-        className="px-6 py-4 font-medium text-stone-900 whitespace-nowrap dark:text-white"
+        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
         <div className="h-4 bg-gray-200 rounded dark:bg-gray-600 w-48"></div>
       </th>

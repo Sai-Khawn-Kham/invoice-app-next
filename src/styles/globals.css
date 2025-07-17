@@ -5,3 +5,11 @@
   --font-base: "Montserrat", sans-serif;
   --font-heading: "Noto Serif", serif;
 }
+
+.hsb {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hsb::-webkit-scrollbar {
+  display: none;
+}

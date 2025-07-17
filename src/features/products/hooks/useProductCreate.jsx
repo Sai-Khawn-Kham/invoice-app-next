@@ -6,12 +6,7 @@ import toast from "react-hot-toast";
 
 const useProductCreate = () => {
   const router = useRouter();
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting, errors },
-    reset,
-  } = useForm();
+  const { register, handleSubmit, formState: { isSubmitting, errors }, reset } = useForm();
 
   const handleProductCreate = async (formData) => {
     try {

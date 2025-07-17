@@ -8,13 +8,13 @@ const LoginForm = () => {
   const { register, handleSubmit, isSubmitting, handleLogin } = useLogin();
   return (
     <form
-     onSubmit={handleSubmit(handleLogin)}
-     className="space-y-4 md:space-y-6"
+      onSubmit={handleSubmit(handleLogin)}
+      className="space-y-4 md:space-y-6"
     >
       <div>
         <label
           htmlFor="email"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium dark:text-white"
         >
           Your email
         </label>
@@ -22,15 +22,15 @@ const LoginForm = () => {
           type="email"
           id="email"
           {...register("email")}
-          required
+          className="block w-full dark:text-white bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-2.5 dark:placeholder-gray-400"
           placeholder="name@company.com"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
         />
       </div>
       <div>
         <label
           htmlFor="password"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium dark:text-white"
         >
           Password
         </label>
@@ -38,32 +38,28 @@ const LoginForm = () => {
           type="password"
           id="password"
           {...register("password")}
-          required
+          className="block w-full dark:text-white bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-2.5 dark:placeholder-gray-400"
           placeholder="••••••••"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
         />
       </div>
       <div className="flex items-center justify-between">
-        <div className="flex items-start">
-          <div className="flex items-center h-5">
-            <input
-              type="checkbox"
-              id="remember"
-              className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-            />
-          </div>
-          <div className="ml-3 text-sm">
-            <label
-              htmlFor="remember"
-              className="text-gray-500 dark:text-gray-300"
-            >
-              Remember me
-            </label>
-          </div>
+        <div className="flex items-start gap-2">
+          <input
+            type="checkbox"
+            id="remember"
+            className="size-4"
+          />
+          <label
+            htmlFor="remember"
+            className="text-sm text-gray-500 dark:text-gray-300"
+          >
+            Remember me
+          </label>
         </div>
         <a
           href="#"
-          className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
+          className="font-medium text-sm text-blue-600 dark:text-blue-500 hover:underline"
         >
           Forgot password?
         </a>
@@ -71,7 +67,7 @@ const LoginForm = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full text-white flex disabled:pointer-events-none disabled:opacity-80 justify-center items-center gap-3 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="w-full flex justify-center items-center gap-3 font-medium text-sm text-center text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 disabled:pointer-events-none disabled:opacity-80"
       >
         Sign in
         {isSubmitting && <SpinnerBtn />}
@@ -80,7 +76,7 @@ const LoginForm = () => {
         Don’t have an account yet?{" "}
         <Link
           href="/register"
-          className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
         >
           Sign up
         </Link>

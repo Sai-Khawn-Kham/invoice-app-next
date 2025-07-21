@@ -8,7 +8,6 @@ const useVoucherDetail = () => {
   const { data, isLoading, error } = useSWR( `${voucherApiUrl}/${id}`, fetchVoucher );
 
   // const handlePrint = () => {
-  //   console.log("print")
   //   printJS({
   //     printable: "printArea",
   //     type: "html",
@@ -20,7 +19,6 @@ const useVoucherDetail = () => {
   // };
 
   // const handlePdf = () => {
-  //   console.log("download")
   //   const element = document.getElementById("printArea");
   //   const opt = {
   //     margin: 0.1,

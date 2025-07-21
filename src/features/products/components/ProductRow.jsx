@@ -28,7 +28,6 @@ const ProductRow = ({ product: { id, product_name, price, created_at, updated_at
       mutate(key);
     } catch (error) {
       toast.error("An error occurred while deleting the product.");
-      console.error(error);
     } finally {
       setIsDeleting(false);
     }

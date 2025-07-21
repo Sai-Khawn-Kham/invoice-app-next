@@ -96,20 +96,6 @@ const SaleInformation = () => {
         <div className="flex flex-col items-end">
           <div>
             <label
-              htmlFor="redirect_to_detail"
-              className="me-2 font-medium text-sm text-gray-900 dark:text-gray-300"
-            >
-              Redirect to Voucher Detail
-            </label>
-            <input
-              type="checkbox"
-              id="redirect_to_detail"
-              {...register("redirect_to_detail")}
-              className="size-4"
-            />
-          </div>
-          <div>
-            <label
               htmlFor="all_correct"
               className={`me-2 font-medium text-sm ${
                 errors.all_correct
@@ -123,6 +109,20 @@ const SaleInformation = () => {
               type="checkbox"
               id="all_correct"
               {...register("all_correct", { required: true })}
+              className="size-4"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="redirect_to_detail"
+              className="me-2 font-medium text-sm text-gray-900 dark:text-gray-300"
+            >
+              Redirect to Voucher Detail
+            </label>
+            <input
+              type="checkbox"
+              id="redirect_to_detail"
+              {...register("redirect_to_detail")}
               className="size-4"
             />
           </div>

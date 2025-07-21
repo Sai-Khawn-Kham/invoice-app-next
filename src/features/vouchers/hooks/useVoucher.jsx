@@ -1,34 +1,28 @@
 "use client";
-import { fetchProduct, productApiUrl } from "@/services/product";
+import { fetchVoucher, voucherApiUrl } from "@/services/voucher";
 import { convertSearchPramsToObject, extractSearchPramsObjectFromUrl } from "@/utils/url";
 import { debounce } from "lodash";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import useSWR from "swr";
 
-const useProduct = () => {
+const useVoucher = () => {
   const searchRef = useRef(null);
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [fetchUrl, setFetchUrl] = useState( searchParams.toString()
-    ? `${productApiUrl}?${searchParams.toString()}`
-    : `${productApiUrl}`
-  );
-  const { data, isLoading, error } = useSWR(fetchUrl, fetchProduct);
+  const [fetchUrl, setFetchUrl] = useState(searchParams.toString() ? `${voucherApiUrl}?${searchParams.toString()}` : `${voucherApiUrl}`);
+  const { data, isLoading, error } = useSWR(fetchUrl, fetchVoucher);
 
   useEffect(() => {
     if (searchParams.get("q")) {
       searchRef.current.value = searchParams.get("q");
     }
-  }, [searchParams]);
+  }, []);
 
   const updateUrlParams = (newParams) => {
     const updatedSearch = new URLSearchParams(newParams).toString();
     router.push(`?${updatedSearch}`);
-    setFetchUrl( updatedSearch
-      ? `${productApiUrl}?${updatedSearch}`
-      : `${productApiUrl}`
-    );
+    setFetchUrl(updatedSearch ? `${voucherApiUrl}?${updatedSearch}` : `${voucherApiUrl}`);
   };
 
   const handleSearchInput = debounce((e) => {
@@ -87,4 +81,4 @@ const useProduct = () => {
   };
 };
 
-export default useProduct;
+export default useVoucher;

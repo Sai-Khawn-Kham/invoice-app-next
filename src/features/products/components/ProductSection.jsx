@@ -28,7 +28,7 @@ const ProductSection = () => {
               ref={searchRef}
             />
             {searchParams.get("q") && (
-              <div className="absolute inset-y-0 end-0 flex items-center pe-3.5 cursor-pointer" onClick={handleClearSearch}>
+              <div onClick={handleClearSearch} className="absolute inset-y-0 end-0 flex items-center pe-3.5 cursor-pointer">
                 <LuX className="size-4 text-gray-500 dark:text-gray-400" />
               </div>
             )}
@@ -58,7 +58,6 @@ const ProductSection = () => {
                   Product name
                 </Sortable>
               </th>
-
               <th scope="col" className="px-6 py-3 text-end">
                 <Sortable handleSort={handleSort} sort_by={`price`} align={"right"} >
                   Price
